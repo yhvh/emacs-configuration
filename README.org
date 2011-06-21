@@ -1,0 +1,2 @@
+* My emacs config
+  Build script and config files
