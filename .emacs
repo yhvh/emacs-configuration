@@ -17,7 +17,7 @@
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
 '(custom-enabled-themes (quote (adwaita)))
-'(custom-safe-themes (quote ("61a9c54df9a7abd811529573c259b4a589f04208" default)))
+'(custom-safe-themes (quote ("61a9c54df9a7abd811529573c259b4a589f04208" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
