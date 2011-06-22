@@ -15,7 +15,9 @@
  '(initial-scratch-message nil)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+'(custom-enabled-themes (quote (adwaita)))
+'(custom-safe-themes (quote ("cdeb026ace5633da32fbf6514c8edfd43c8ae63e" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
