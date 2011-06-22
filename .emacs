@@ -10,6 +10,7 @@
  '(erc-hide-list (quote ("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE")))
  '(fancy-splash-image "~/Documents/triangle.png")
  '(global-subword-mode t)
+ '(image-animate-loop t)
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(menu-bar-mode nil)
