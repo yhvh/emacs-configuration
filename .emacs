@@ -116,15 +116,6 @@
 (autoload 'js2-mode "js2" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
-;; Color theme 
-(add-to-list 'load-path "~/.emacs.d/plugins/color-theme")
-(require 'color-theme)
-(load "~/.emacs.d/plugins/color-theme-gnome-3-adwaita/color-theme-gnome-3-adwaita.el")
-(eval-after-load "color-theme"
-  '(progn
-     (color-theme-initialize)
-     (color-theme-gnome-3-adwaita)
-     ))
 (require 'linum)
 (setq linum-format
       (lambda (line) 
