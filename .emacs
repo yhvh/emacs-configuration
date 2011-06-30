@@ -56,59 +56,12 @@
 (global-set-key [f11] 'toggle-fullscreen)
 ;;(run-with-idle-timer 0.1 nil 'toggle-fullscreen)
 
-;; Fancy Pants C-TAB and forward/back mouse buttons.
-;; necessary support function for buffer burial
-(defun crs-delete-these (delete-these from-this-list)
-  "Delete DELETE-THESE FROM-THIS-LIST."
-  (cond
-   ((car delete-these)
-    (if (member (car delete-these) from-this-list)
-	(crs-delete-these (cdr delete-these) (delete (car delete-these)
-                                                     from-this-list))
-      (crs-delete-these (cdr delete-these) from-this-list)))
-   (t from-this-list)))
+;; keybindings for buffer cycling
+(global-set-key [(control tab)] 'bs-cycle-previous)
+(global-set-key [(C-S-iso-lefttab)] 'bs-cycle-next)
 
-;; this is the list of buffers I never want to see
-(defvar crs-hated-buffers
-  '("KILL" "*Compile-Log*" "*scratch*" "*Messages*" "*Completions*" "*tramp output*" "*tramp/plink nungu@209.40.204.161*"))
-
-;; might as well use this for both
-(setq iswitchb-buffer-ignore (append '("^ " "*Buffer") crs-hated-buffers))
-
-(defun crs-hated-buffers ()
-  "List of buffers I never want to see, converted from names to buffers."
-  (delete nil
-	  (append
-	   (mapcar 'get-buffer crs-hated-buffers)
-	   (mapcar (lambda (this-buffer)
-		     (if (string-match "^ " (buffer-name this-buffer))
-			 this-buffer))
-		   (buffer-list)))))
-
-;; I'm sick of switching buffers only to find KILL right in front of me
-;; Me too asshole.
-(defun crs-bury-buffer (&optional n)
-  (interactive)
-  (unless n
-    (setq n 1))
-  (let ((my-buffer-list (crs-delete-these (crs-hated-buffers)
-					  (buffer-list (selected-frame)))))
-    (switch-to-buffer
-     (if (< n 0)
-	 (nth (+ (length my-buffer-list) n)
-	      my-buffer-list)
-       (bury-buffer)
-       (nth n my-buffer-list)))))
-
-(global-set-key [(control tab)] 'crs-bury-buffer)
-(global-set-key [(C-S-iso-lefttab)] (lambda ()
-					(interactive)
-					(crs-bury-buffer -1)))
-
-(global-set-key [(mouse-9)] 'crs-bury-buffer)
-(global-set-key [(mouse-8)] (lambda ()
-			      (interactive)
-			      (crs-bury-buffer -1)))
+(global-set-key [(mouse-9)] 'bs-cycle-previous)
+(global-set-key [(mouse-8)] 'bs-cycle-next)
 
 ;; Steve yegge
 (global-set-key [f5] 'call-last-kbd-macro)
