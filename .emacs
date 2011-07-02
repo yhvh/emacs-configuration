@@ -33,6 +33,8 @@
 
 (define-key global-map "\C-cc" 'comment-or-uncomment-region)
 
+(global-set-key [f12] 'gnus)
+
 (require 'smooth-scrolling)
 (smooth-scroll-lines-from-window-bottom)
 
