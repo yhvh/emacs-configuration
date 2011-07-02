@@ -35,6 +35,13 @@
 
 (global-set-key [f12] 'gnus)
 
+(defun switch-to-minibuffer-window ()
+  "switch to minibuffer window (if active)"
+  (interactive)
+  (when (active-minibuffer-window)
+    (select-window (active-minibuffer-window))))
+(global-set-key (kbd "<f8>") 'switch-to-minibuffer-window)
+
 (require 'smooth-scrolling)
 (smooth-scroll-lines-from-window-bottom)
 
