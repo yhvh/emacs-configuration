@@ -66,8 +66,8 @@
 ;; Steve yegge
 (global-set-key [f5] 'call-last-kbd-macro)
 ;; ;; and his Javascript mode
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;; (autoload 'js2-mode "js2" nil t)
+;; (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 (require 'linum)
 (setq linum-format
