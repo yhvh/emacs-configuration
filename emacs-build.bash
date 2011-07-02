@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# bzr http://www.emacswiki.org/emacs/BzrForEmacsDevs
+# bzr init-repo --2a emacs/
+# cd emacs/
+# bzr branch nosmart+bzr://bzr.savannah.gnu.org/emacs/trunk trunk
+# cd trunk/
+# echo "public_branch = bzr://bzr.savannah.gnu.org/emacs/trunk" >> .bzr/branch/branch.conf
+# bzr bind bzr://bzr.savannah.gnu.org/emacs/trunk
+# cd ..
+
 # emacs build script
 tar xzf emacs-24.0.50.tar.gz
 rm emacs-24.0.50.tar.gz
