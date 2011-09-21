@@ -6,7 +6,10 @@
  '(browse-url-browser-function (quote browse-url-generic))
  '(browse-url-generic-program "google-chrome")
  '(canlock-password "92547bba86cedd258579715cc85c0f82f9ac86fc")
+ '(custom-enabled-themes (quote (adwaita)))
+ '(custom-safe-themes (quote ("3f4566357d3870449e6ce7ce1ab14396b8e8dea7" "8c8ac677232963d18fb03d6f460b69b00eba0aba" "fe87b8fc50359500ce1b48d7dd0959b731b78b75" "adb2f6353aeab26d970bf9ca3db14fb1e50c94a5" "6abbb4ad3c7ef31460e527da543803bfecc8b818" "61a9c54df9a7abd811529573c259b4a589f04208" default)))
  '(display-time-default-load-average nil)
+ '(display-time-mode t)
  '(erc-hide-list (quote ("JOIN" "KICK" "NICK" "PART" "QUIT" "MODE")))
  '(fancy-splash-image "~/Documents/triangle.png")
  '(global-subword-mode t)
@@ -15,15 +18,14 @@
  '(initial-scratch-message nil)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil)
-'(custom-enabled-themes (quote (adwaita)))
-'(custom-safe-themes (quote ("61a9c54df9a7abd811529573c259b4a589f04208" default))))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:stipple nil :background "#EDEDED" :foreground "#000000" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "DejaVu Sans Mono"))))
+ '(mode-line ((t (:background "white" :foreground "black" :box nil)))))
 
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 ;; Don't type yes or no, type y or n
@@ -52,7 +54,23 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
-                             "~/org/home.org"))
+                             "~/org/home.org"
+			     "~/org/school.org"))
+
+;; nice calendar
+(add-to-list 'load-path "~/.emacs.d/plugins/emacs-calfw/")
+(require 'calfw-org)
+(define-key global-map [f9] 'cfw:open-org-calendar)
+;; Unicode characters
+(setq cfw:fchar-junction ?╋
+      cfw:fchar-vertical-line ?┃
+      cfw:fchar-horizontal-line ?━
+      cfw:fchar-left-junction ?┣
+      cfw:fchar-right-junction ?┫
+      cfw:fchar-top-junction ?┯
+      cfw:fchar-top-left-corner ?┏
+      cfw:fchar-top-right-corner ?┓)
+
 
 (defun toggle-fullscreen (&optional f)
   (interactive)
@@ -98,7 +116,7 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (add-hook 'haskell-mode-hook 'font-lock-mode)
 ;; find a good monospace unicode font first
-;;(setq haskell-font-lock-symbols t)
+(setq haskell-font-lock-symbols t)
 
 (add-to-list 'load-path "~/.emacs.d/plugins/rainbow")
 (require 'rainbow-mode)
