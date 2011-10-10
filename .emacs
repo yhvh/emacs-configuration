@@ -35,6 +35,8 @@
 
 (define-key global-map "\C-cc" 'comment-or-uncomment-region)
 
+(setq sentence-end-double-space nil) ;period single space ends sentence
+
 (global-set-key [f12] 'gnus)
 
 (defun switch-to-minibuffer-window ()
