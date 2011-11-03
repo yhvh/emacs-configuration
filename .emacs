@@ -49,7 +49,11 @@
 (require 'smooth-scrolling)
 (smooth-scroll-lines-from-window-bottom)
 
-(require 'yasnippet-bundle)
+(add-to-list 'load-path
+                  "~/.emacs.d/plugins/yasnippet")
+    (require 'yasnippet) ;; not yasnippet-bundle
+    (yas/initialize)
+    (yas/load-directory "~/.emacs.d/plugins/yasnippet/snippets")
 
 ;; org mode stuff
 (define-key global-map "\C-cl" 'org-store-link)
@@ -157,3 +161,4 @@
 (global-set-key (kbd "C-9") '(lambda()(interactive)(djcb-opacity-modify t)))
 (global-set-key (kbd "C-0") '(lambda()(interactive)
                                (modify-frame-parameters nil `((alpha . 100)))))
+(put 'dired-find-alternate-file 'disabled nil)
